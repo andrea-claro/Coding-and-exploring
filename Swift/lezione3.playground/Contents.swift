@@ -258,13 +258,15 @@ class Hero{
         self.monsterToDestroy = monster
     }
     
-    func printingInfo(){
+    func printInfo(){
         print("\(name!) wants to save the world, let's see if it's capable of it")
     }
     
     func savePeople(taxes: Int, people: Int, structures: Int){
         print("The \(monsterToDestroy.name!) monster is running away, and is everything like it was before him")
         monsterToDestroy.destruction(tasse: taxes, persons: -people, buildings: -structures)
+        print("Everything back in town")
+        monsterToDestroy.cityToInvade.printInfo()
     }
 }
 
