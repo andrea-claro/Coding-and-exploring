@@ -15,8 +15,13 @@ class DetailsView: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
+    override func viewWillAppear(_ animated: Bool) {
+        insertedDescription.text = currentItem!.des
+        insertedDate.text = currentItem!.data!.description
+        insertedQuantity.text = String(currentItem!.quantity!)
+        insertedName.text = currentItem!.name!
+    }
     /*
     // MARK: - Navigation
 
@@ -29,4 +34,7 @@ class DetailsView: UIViewController {
     @IBOutlet weak var insertedName: UITextField!
     @IBOutlet weak var insertedDescription: UITextField!
     @IBOutlet weak var insertedQuantity: UITextField!
+    @IBOutlet weak var insertedDate: UILabel!
+    
+    var currentItem: Item?
 }

@@ -20,11 +20,16 @@ class StoreView: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        self.navigationItem.leftBarButtonItem =
         
         StoreView.itemStore.insert(item: Item(description: "giallo", name: "color", quantity: 3))
         StoreView.itemStore.insert(item: Item(description: "blue", name: "color", quantity: 1))
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,6 +37,9 @@ class StoreView: UITableViewController {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//        StoreView.itemStore.move(from: fromIndexPath, to: to)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return StoreView.itemStore.listItem.count
@@ -39,7 +47,7 @@ class StoreView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemcell", for: indexPath) as! CellItem
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellItem", for: indexPath) as! CellItem
         let item = StoreView.itemStore.listItem[indexPath.row]
         
         cell.nameLabel.text! = item.name!
@@ -48,16 +56,6 @@ class StoreView: UITableViewController {
         
         return cell
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -67,17 +65,14 @@ class StoreView: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            StoreView.itemStore.listItem.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -94,14 +89,27 @@ class StoreView: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        switch segue.identifier{
+            
+        case "showDetails"?:
+            if let currentIndex = tableView.indexPathForSelectedRow?.row{
+                let item = StoreView.itemStore.listItem[currentIndex]
+                
+                let destinationView = segue.destination as! DetailsView
+                
+                destinationView.currentItem = item
+            }
+            
+        default: print(#function)
+        }
     }
-    */
+    
 
 }
