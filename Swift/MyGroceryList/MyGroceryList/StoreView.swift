@@ -20,7 +20,7 @@ class StoreView: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        self.navigationItem.leftBarButtonItem =
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         StoreView.itemStore.insert(item: Item(description: "giallo", name: "color", quantity: 3))
         StoreView.itemStore.insert(item: Item(description: "blue", name: "color", quantity: 1))
@@ -30,6 +30,14 @@ class StoreView: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    @IBAction func createNewItem(_ sender: UIBarButtonItem) {
+        StoreView.itemStore.createEmptyItem()
+
+        let indexpath = IndexPath(row: StoreView.itemStore.listItem.count-1, section: 0)
+        
+        tableView.insertRows(at: [indexpath], with: .automatic)
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,9 +45,6 @@ class StoreView: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-//        StoreView.itemStore.move(from: fromIndexPath, to: to)
-    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return StoreView.itemStore.listItem.count
@@ -56,6 +61,10 @@ class StoreView: UITableViewController {
         
         return cell
     }
+    
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        StoreView.itemStore.move(from: fromIndexPath.row, to: to.row)
+        }
 
     /*
     // Override to support conditional editing of the table view.

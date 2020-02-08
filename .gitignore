@@ -11,3 +11,5 @@ Swift/lezione3.playground/playground.xcworkspace/xcuserdata/andrea-claro.xcuserd
 *.xcuserstate
 Swift/TestProject/Calculator.xcodeproj/project.pbxproj
 *.xcworkspacedata
+*.xcuserstate
+*.storyboard

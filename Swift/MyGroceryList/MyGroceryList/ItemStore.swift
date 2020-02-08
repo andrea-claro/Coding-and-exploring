@@ -16,6 +16,11 @@ class ItemStore: NSObject {
         listItem = [Item]()
     }
     
+    func createEmptyItem() {
+        let item = Item(description: "fagiolo", name: "ngruscato", quantity: 5)
+        listItem.append(item)
+    }
+    
     func insert(item: Item?){
         listItem.append(item!)
     }

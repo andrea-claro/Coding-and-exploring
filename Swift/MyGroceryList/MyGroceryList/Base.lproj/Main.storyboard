@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="920-7j-UNB">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -59,7 +59,7 @@
                                     <outlet property="descriptionLabel" destination="GV0-l8-CHz" id="vT3-3k-FhQ"/>
                                     <outlet property="nameLabel" destination="3tm-9M-XIT" id="cYl-Mr-sA1"/>
                                     <outlet property="quantityLabel" destination="Oyx-kM-FgP" id="ZJ8-GW-GqW"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showDeatails" id="MmR-1G-rwh"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showDetails" id="MmR-1G-rwh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,7 +70,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="MyGroceryList" id="6Ga-06-dM2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ei0-Sx-AH0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ei0-Sx-AH0">
+                            <connections>
+                                <action selector="createNewItem:" destination="sWW-up-tz2" id="fWb-gv-0fS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4VB-Kb-2eI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

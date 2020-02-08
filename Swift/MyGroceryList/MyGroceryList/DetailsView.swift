@@ -17,10 +17,18 @@ class DetailsView: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        insertedDescription.text = currentItem!.des
+        insertedDescription.text = currentItem!.des!
         insertedDate.text = currentItem!.data!.description
         insertedQuantity.text = String(currentItem!.quantity!)
         insertedName.text = currentItem!.name!
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        currentItem!.name = insertedName.text!
+        currentItem!.des = insertedDescription.text
+        currentItem!.quantity = Int(insertedQuantity.text!)
     }
     /*
     // MARK: - Navigation
