@@ -1,15 +1,28 @@
-
+# XCode section
+#
+#
+# OS X Finder
 .DS_Store
-Swift/functionSwift.playground/contents.xcplayground
-Swift/lezione1.playground/contents.xcplayground
-Swift/lezione3.playground/playground.xcworkspace/contents.xcworkspacedata
-Swift/lezione3.playground/playground.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
-Swift/lezione3.playground/playground.xcworkspace/xcuserdata/andrea-claro.xcuserdatad/UserInterfaceState.xcuserstate
-*.plist
-*.xcbkptlist
-*.xcbkptlist
-*.xcuserstate
-Swift/TestProject/Calculator.xcodeproj/project.pbxproj
-*.xcworkspacedata
-*.xcuserstate
-*.storyboard
+
+# Xcode per-user config
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# Build products
+build/
+*.o
+*.LinkFileList
+*.hmap
+
+# Automatic backup files
+*~.nib/
+*.swp
+*~
+*.dat
+*.dep
