@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context  
+	   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	   <context:component-scan base-package="it.model"/>
+	   
+	 <bean id="persona" class="it.model.Persona">
+	 	  <constructor-arg ref="indirizzo" />
+	 </bean>
+	 <bean id="indirizzo" class="it.model.Indirizzo">
+	 	 <constructor-arg value="Via Tal dei tali..." index="0"/>
+	 	 <constructor-arg value="Napoli" index="2" />
+	 	 <constructor-arg value="80100" index="1" />
+	 </bean>
+	 
+	 <bean id="ind2" class="it.model.Indirizzo" scope="prototype">
+	 	 <constructor-arg value="Pace" index="0"/>
+	 	 <constructor-arg value="Nola" index="2" />
+	 	 <constructor-arg value="22" index="1" />
+	 </bean>
+</beans>

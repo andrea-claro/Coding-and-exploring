@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context  
+	   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	  <context:component-scan base-package="it.model"/>
+	  
+	  <bean id="pBean" class="it.model.ParentBean">
+	  	<property name="name" value="Mario"></property>
+	  	<property name="surname" value="Bianchi"></property>
+	  </bean>
+	  
+	  <bean id="cBean" class="it.model.ChildBean" parent="pBean">
+	    <property name="name" value="Pippo"></property>
+	  	<property name="surname" value="Pluto"></property>
+	  	<property name="age" value="20"></property>
+	  	<property name="cm" value="180"></property>
+	  </bean>
+	  
+	  <bean id="cBean2" class="it.model.ChildBean" parent="pBean">
+	    <property name="name" value="Pippo2"></property>
+	  	<property name="surname" value="Pluto2"></property>
+	  	<!-- Se commento name e surname eredito quelle di pBean classe Padre -->
+	  	<property name="age" value="20"></property>
+	  	<property name="cm" value="180"></property>
+	  </bean>
+	  
+	 <!--abstract bean configuration -->	
+	 <bean id="pBeanAbs" class="it.modelabstract.ParentBean" abstract="true">
+	 	<property name="name" value="Mario"></property>
+	 	<property name="surname" value="Rossi"></property>
+	 </bean>
+	 
+	 <bean id="cBeanAbs" class="it.modelabstract.ChildBean" parent="pBeanAbs">
+	 	<property name="age" value="99"></property>
+	 	<property name="cm" value="150"></property>
+	 </bean>
+</beans>
