@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+ <bean id="employee" class="it.model.Employee">
+  <constructor-arg value="Mario Rossi" index="0"/>
+  <constructor-arg value="false" index="2"/>
+  <constructor-arg value="28" index="1"/>
+ </bean>
+ 
+  <bean id="employee2" class="it.model.Employee">
+  <constructor-arg value="Mario Bianchi" index="0"/>
+  <constructor-arg value="true" index="2"/>
+  <constructor-arg value="78" index="1"/>
+ </bean>
+ 
+   <bean id="employee3" class="it.model.Employee">
+  <constructor-arg value="XXXX YYYYY" index="0"/>
+  <constructor-arg value="22" index="1"/>
+ </bean>
+</beans>
